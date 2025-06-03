@@ -63,15 +63,21 @@ $UserInput = 1
                 }
                 
                 2{ 
-                    #List files in Requirements1 folder (alphabetical)
+                    #List files in Requirements1 folder (alphabetical) and redirect results to DailyLog.txt
+                    $files = Get-ChildItem | Sort-Object Name 
+                    $files | Sort-Object -Property Name | Format-Table -AutoSize | Out-File -FilePath ".\C916contents.txt" -Append
                 }
 
                 3{
                     #List CPU and Memory Usage
-                }
+                    $cpuUsage = Get-CimInstance -ClassName Win32_Processor | Select-Object -ExpandProperty LoadPercentage
+                    $memoryUsage = Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object -ExpandProperty FreePhysicalMemory
+                }   
 
                 4{
-                    #List running process by virtual size
+                    #List running process by virtual size least to greatest
+                    Write-Verbose "Option 4 Selected"
+                    Get-Process | Sort-Object -Property VirtualMemorySize | Select-Object -Property Name, VirtualMemorySize, WorkingSet | Format-Table -AutoSize
                 }
 
                 5{
@@ -83,6 +89,9 @@ $UserInput = 1
 
         }
     }
+    
+    #Exception Handling System.OutOfMemoryException
+    
     catch [System.OutOfMemoryException]
     {
         Write-Host -ForegroundColor Red "ERROR"
@@ -90,7 +99,7 @@ $UserInput = 1
     }
     catch
     {
-        Write-Host -ForegroundColor Red "ERROR"
+        Write-Host -ForegroundColor Red "System.OutOfMemoryException"
         $_
     }
     try {
@@ -102,4 +111,3 @@ $UserInput = 1
     }
 
 
-D1CF39306E9816558892EE6B2BC7ED6358E0539D2E3BAC94C6F518F97517EBFC
