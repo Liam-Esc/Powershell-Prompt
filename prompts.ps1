@@ -1,7 +1,4 @@
-<# 
-Liam Esucsa 
-Student ID: 011950351 
-#>
+<# Liam Esucsa  Student ID: 011950351 #>
 
 #Region Function: Display Menu
 function Show-Menu {
@@ -78,7 +75,9 @@ try {
 
             4 {
                 # B4: Show running processes sorted by Virtual Memory in grid format
-                Get-Process | Sort-Object VirtualMemorySize -Ascending | Out-GridView -Title "Running Processes by Virtual Memory"
+                Write-Host "`nProcesses sorted by Virtual Memory (VM) size - Ascending:`n"
+                Get-Process | Sort-Object VM | Select-Object Name, Id, VM
+                break 
             }
 
             5 {
