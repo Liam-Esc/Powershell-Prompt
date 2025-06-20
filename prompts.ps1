@@ -75,7 +75,8 @@ try {
 
             4 {
                 # B4: Show running processes sorted by Virtual Memory in grid format
-                Get-Process | Sort-Object VirtualMemorySize | Out-GridView -Title "Running Processes by Virtual Memory"
+                $processes = Get-Process | Sort-Object VM
+                $processes | Select-Object Name, VM | Format-Table -AutoSize "Running Processes by Virtual Memory"
             }
 
             5 {
