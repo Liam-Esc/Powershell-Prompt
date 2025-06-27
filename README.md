@@ -26,5 +26,9 @@ Windows Command Line
 
 ![PowerShell Demo](prompt1.png)
 
+![PowerShell Demo](prompt2.png)
+
+![PowerShell Demo](prompt3.png)
+
 
 
