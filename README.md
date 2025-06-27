@@ -22,4 +22,11 @@ Windows PowerShell
 
 Windows Command Line
 
+## 📸 Script Demo
+
+## 📸 Script Demo
+
+![PowerShell Prompt Demo](images/prompt1.png)
+
+
 
