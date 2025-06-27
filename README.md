@@ -24,7 +24,7 @@ Windows Command Line
 
 ## 📸 Script Demo
 
-![PowerShell Prompt Demo](Power-Shell/prompt1.png)
+![PowerShell Demo](prompt1.png)
 
 
 
